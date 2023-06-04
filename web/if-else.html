@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if_else</title>
+</head>
+<body>
+    <p>如果时间大于0点小于6点输出“凌晨好”</p>
+    <p>如果时间大于6点小于12点输出“上午好”</p>
+    <p>如果时间大于12点小于18点输出“下午好”</p>
+    <p>如果时间大于18点小于24点输出“晚上好”</p>
+    <button onclick="myFunction()">点击这里</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction(){
+            var x = "";
+            var time = new Date().getHours();
+            if(time>0&&time<6){
+                
+                x = "凌晨好";
+            }
+            if(time>6&&time<12){
+                
+                x = "上午好";
+            }
+            if(time>12&&time<18){
+                
+                x = "下午好";
+            }
+            if(time>18&&time<24){
+                
+                x = "晚上好";
+            }
+            document.getElementById("demo").innerHTML=x;
+            
+        }
+    </script>
+</body>
+</html>

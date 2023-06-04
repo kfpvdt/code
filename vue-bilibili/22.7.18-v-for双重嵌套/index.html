@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul v-for="(item,index) in list" :key="index">
+            <li>
+                {{ item.name }}
+                <ul v-for="(i,cindex) in list[index].chrildList" :key="cindex">
+                    <li>{{ i.chrildName }}</li>
+                </ul>
+            </li>
+        </ul>
+</div>
+</body>
+</html>
+<script>
+    export default {
+        name: "home",
+        data() {
+            return{
+                list: [{
+                        name: '权限管理', chrildList:[
+                            {chrildName:'添加管理员'},
+                            {chrildName:'添加角色'}]
+                    }, {
+                        name: '商品管理', chrildList:[
+                            {chrildName:'商品管理'}]
+                    },{
+                        name: '分类管理',
+                    }, {
+                        name: '优惠券管理', 
+                    }, {
+                        name: '积分管理', 
+                    }, {
+                        name: '订单管理', 
+                    }, {
+                        name: '数据统计', 
+                    },  {
+                        name: '操作记录', 
+                    },{
+                        name: '客服中心', 
+                    }],
+            }
+        },
+    }
+</script>

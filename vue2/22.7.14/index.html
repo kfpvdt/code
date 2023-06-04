@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="say('hi')">Say hi</button>
+		<button v-on:click="say('what')">Say what</button>
+	  </div>
+
+
+<script>
+	new Vue({
+  el: '#app',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  },
+}),
+TestButton()
+        // for (i=0;i<=Data.length;i++){
+        function TestButton(){
+            var btn=document.createElement("BUTTON");
+	        var t=document.createTextNode("流程");
+	        btn.appendChild(t);
+	        // document.body.appendChild(btn);
+}
+    // }
+
+    CreateFlowButton()
+    CreatePlanButton()
+    CreateRiskButton()    
+function CreateFlowButton(){
+	var btn=document.createElement("BUTTON");
+	var t=document.createTextNode("流程");
+	btn.appendChild(t);
+	document.body.appendChild(btn);
+};
+function CreatePlanButton(){
+	var btn=document.createElement("BUTTON");
+	var t=document.createTextNode("计划");
+	btn.appendChild(t);
+	document.body.appendChild(btn);
+};
+function CreateRiskButton(){
+	var btn=document.createElement("BUTTON");
+	var t=document.createTextNode("问题风险");
+	btn.appendChild(t);
+	document.body.appendChild(btn);
+};
+
+</script>
+
+</body>
+</html>

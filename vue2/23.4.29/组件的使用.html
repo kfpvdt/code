@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- //使用组件 -->
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+    <script src="../vue.js/vue.js"></script>
+</body>
+</html>
+<script>
+    //声明一个组件对象
+    var buttonCounter ={
+        template:'<button type="button" @click="count++">我被点击了{{count}}次</button>',
+        // 组件中的data是一个函数，目的是为了做一个隔断
+        data:function(){
+            return {
+                count:0
+            }
+        }
+    }
+    //注册组件
+    Vue.component('button-counter',buttonCounter)
+    var vm = new Vue({
+        el:'#app'
+    })
+</script>

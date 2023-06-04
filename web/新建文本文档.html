@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript">
+		var db = openDatabase('mydb','1.0','Test DB','3*1024*1024');
+		var msg;
+//查询
+		db.transaction(function (tx){
+			tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS(id unique,log,an)');
+			tx.executeSql('INSERT INTO LOGS(id,log,an) VALUES(1,"叶安邦")');
+			tx.executeSql('INSERT INTO LOGS(id,log,an) VALUES(2,"kfpvdt")');
+			tx.executeSql('INSERT INTO LOGS(id,log,an) VALUES(3,"kfsdpvdt")');
+			//tx.executeSql('INSERT INTO LOGS(id,log,an) VALUES(?,?)',[e_id,e_log,e_an]);
+			msg='<p>数据表已成功创建，且插入了三条数据。</p>';
+			document.querySelector('#status').innerHTML=msg;
+		});
+
+		db.transaction(function (tx){
+			tx.executeSql('DELETE FORM LOGS WHERE ID=1');
+			msg = '<p>删除记录为1的记录。</p>';
+			document.querySelector('#status').innerHTML = msg;
+		});
+
+		db.transaction(function (tx){
+			tx.executeSql('UPDATE LOGS SET log=\'runoob.com\' WHERE ID=2');
+			msg = '<p>更新记录为2的记录。</p>';
+			document.querySelector('#status').innerHTML = msg;
+		});
+
+		db.transaction(function (tx){
+			tx.executeSql('SELECT*FORM LOGS',[],function(tx,results){
+				var len = results.row.length,i;
+				msg = "<p>查询记录条数："+ len +"</p>";
+				document.querySelector('#status').innerHTML+=msg;
+				for(i=0;i<len;i++){
+					msg = "<p><b>"+results.rows.item(i).log+"<p><b>";
+						document.querySelector('#status').innerHTML = msg;
+				}
+			},null);
+		});
+	</script>
+</head>
+<body>
+	<div id="status" name ="status">状态信息</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: blue;
+        }
+    </style>
+    <script src="../vue.js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgURL" alt=""> -->
+        <!-- <a v-bind:href="aHref">123</a>
+        <a :href="aHref">321</a> -->
+        <div :class="active">{{name}}</div>
+        <div v-bind:class="{active:isActive, line:isLine}">{{name}}</div>
+        <button v-on:click="btnclick">按钮</button>
+        <div class="active">{{name}}</div>
+    </div>
+   
+    <script>
+                const app = new Vue({
+                    el:'#app',
+                    data:{
+                        name:'跖蹊',
+                        active:'active',
+                        message:'叶安邦',
+                        isActive:true,
+                        isLine:true,
+                    },
+                    methods:{
+                        btnclick: function(){
+                         this.isActive =!this.isActive
+                    }
+                }
+            })
+    </script>
+</body>
+</html>

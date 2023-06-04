@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: blue;
+        }
+        .line{
+            color:yellow;
+        }
+    </style>
+    <script src="../vue.js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <h2 :class="getClesses()">{{message}}</h2>
+        <h1 v-bind:class="{active:isActive,line:isLine}">{{message}}</h1>
+        <h1 :class="{active:isActive,line:isLine}">{{message}}</h1> -->
+        333
+        <h3 :class="[active,line]">{{message}}</h3>
+        <h3 :class="postclsses()">{{message}}</h3>
+    </div>   
+    <script>
+                const app = new Vue({
+                    el:'#app',
+                    data:{
+                        message:'跖蹊',
+                        isActive:true,
+                        isLine:true,
+                        active:'aaaaa',
+                        line:'bbbbb',
+                    },
+                    methods:{
+                        // getClesses:function(){
+                        //     return{
+                        //     active:this.isActive,
+                        //     line:this.isLine
+                        //     }
+                        // },
+                        postclsses:function(){
+                            return [this.active,this.line]
+                        },
+                    }
+            })
+    </script>
+</body>
+</html>

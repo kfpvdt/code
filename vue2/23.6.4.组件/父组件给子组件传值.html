@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <button-counter title="左当风谷"></button-counter>
+        <button-counter :title="titleOfParent" :kfpvdt="ambon"></button-counter>
+        <button-counter voice="上无临虚之巢"></button-counter>
+    </div>
+</body>
+</html>
+<script>
+    //声明一个组件对象
+    var buttonCounter ={
+        props:['title','voice','kfpvdt'],//这时上面的title则会传递到下面，可以通过这个属性给父组件传值。
+        //在template中只能渲染出一个标签，因为要给他一个根元素，例如<h2></h2><button></button>是无法渲染出来的，只需要在外面加个div即可。
+        template:`
+            <div>
+                <h2>{{title}}</h2>
+                <button @click="count++"> 我被点击了{{count}}次，{{kfpvdt}}{{voice}}</button>
+            <div>
+        `,
+        //这只注意需要用`而不是单引号，使用单引则无法换行。
+        //这种写法使用了 {{count++}} 来更新计数器，但这样的写法在 Vue 模板中是不支持的。Vue 模板中的表达式应该是响应式的，而 count++ 是一个表达式语句，不会返回一个值用于模板的渲染。
+        
+        // 组件中的data是一个函数，因为数据隔离的原因
+        data: function(){
+            return {
+                count:0
+            }
+
+        }
+    }
+    //注册组件，还需要注意注册的名称不能使用驼峰，因为html会默认转换成小写，因此下面button-counter可以写成button-counter或者buttonCounter，这种识别出来是一样的。
+    // Vue.component('button-counter',buttonCounter)
+    Vue.component('button-counter',buttonCounter)
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            titleOfParent:'从父组件取的值',
+            ambon:'右临云溪'
+        }
+    })
+</script>

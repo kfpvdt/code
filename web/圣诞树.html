@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>圣诞树</title>
+</head>
+<style>
+body {font-family:Consolas;}
+    </style>
+<body>
+        <script>
+            var height = 51;
+            var n = 1;
+            for (height; height > 0; height--) {
+                for (a = height; a > 0; a--) {
+                    document.write("&nbsp");
+                }
+                for (i = 1; i <= n; i++) {
+                    document.write("*");
+                }
+                document.write("<br>");
+                n = n + 2;
+            }
+        </script>
+        <script>
+            document.write("&nbsp");document.write("&nbsp");document.write("&nbsp");document.write("<br>");
+            document.write("*");document.write("*");document.write("*");document.write("*");
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <button-counter @btn-click="PreantBtnClick"></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <div>
+            总共被点击了{{total}}次
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    var buttonCounter ={
+        template:`
+        <div>
+            <h2>左当风谷</h2>
+            <button @click="clickHandle"> 我被点击了{{count}}次</button>
+        </div>`,
+        data: function(){
+            return {
+                count:0
+            }
+        },
+        methods:{
+        clickHandle:function(){
+            this.count++
+            this.$emit('btn-click')//在子组件中触发一个事件，用父组件来监听子组件
+        }    
+        }
+    }
+    Vue.component('buttonCounter',buttonCounter)
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            total:0    
+        },
+        methods:{
+            PreantBtnClick:function(){
+                console.log('总共被点击了',this.total)
+                this.total++
+            }
+        }
+    })
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    .class1{
+        background:#444;
+        color:#eee;
+    }
+</style>
+<body>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <div id="app">
+    <label for="r1">修改颜色</label>
+    <input type="checkbox" v-model="use" id="r1">
+    <br><br>
+    <div v-beind:class = "class1:usr">
+        v-bind:class指令
+    </div>
+</div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isr:false
+            }
+        });
+    </script>
+</body>
+</html>

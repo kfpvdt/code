@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button type="button" @click="b1Click">我被点击了{{b1}}次</button>
+        <button type="button" @click="b1Click">我被点击了{{b2}}次</button>
+        <button type="button" @click="b1Click">我被点击了{{b3}}次</button>
+    </div>
+</body>
+    <script src="../vue.js/vue.js"></script>
+</html>
+<script>
+        var vm =new Vue({
+            el:'#app',
+            data:{
+                b1:0,
+                b2:0,
+                b3:0,
+            },
+            methods:{
+                b1Click:function(){
+                    console.log('b1被点击了')
+                    this.b1++
+                },
+                b2Click:function(){
+                    console.log('b1被点击了')
+                    this.b1++
+                },
+                b3Click:function(){
+                    console.log('b1被点击了')
+                    this.b1++
+                },
+            }
+        })
+</script>
